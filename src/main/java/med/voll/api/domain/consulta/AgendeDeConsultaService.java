@@ -19,7 +19,11 @@ public class AgendeDeConsultaService {
     private ConsultaRepository consultaRepository;
     public void agendar(DatosAgendarConsulta datos){
 
-        var consulta = new Consulta(null, new Medico(),new Paciente(),datos.fecha());
+        var paciente = pacienteRepository.findById(datos.idPaciente()).get();
+
+        var medico = medicoRepository.findById(datos.idMedico()).get();
+
+        var consulta = new Consulta(null, medico,paciente,datos.fecha());
 
         consultaRepository.save(consulta);
     }
