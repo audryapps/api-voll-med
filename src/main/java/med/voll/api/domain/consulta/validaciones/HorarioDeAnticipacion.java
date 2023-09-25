@@ -7,7 +7,7 @@ import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class HorarioDeAnticipacion {
+public class HorarioDeAnticipacion implements ValidadorDeConsultas {
     public void validar(DatosAgendarConsulta datos){
 
         var ahora = LocalDateTime.now();

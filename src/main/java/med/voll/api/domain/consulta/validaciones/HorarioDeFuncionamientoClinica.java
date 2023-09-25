@@ -6,7 +6,7 @@ import med.voll.api.infra.errores.ValidacionDeIntegridad;
 
 import java.time.DayOfWeek;
 
-public class HorarioDeFuncionamientoClinica {
+public class HorarioDeFuncionamientoClinica implements ValidadorDeConsultas{
     public void validar(DatosAgendarConsulta datos){
 
         var domingo = DayOfWeek.SUNDAY.equals(datos.fecha().getDayOfWeek());
