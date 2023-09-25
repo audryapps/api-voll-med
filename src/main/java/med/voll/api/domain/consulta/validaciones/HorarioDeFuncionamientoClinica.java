@@ -3,9 +3,10 @@ package med.voll.api.domain.consulta.validaciones;
 import jakarta.validation.ValidationException;
 import med.voll.api.domain.consulta.DatosAgendarConsulta;
 import med.voll.api.infra.errores.ValidacionDeIntegridad;
+import org.springframework.stereotype.Component;
 
 import java.time.DayOfWeek;
-
+@Component
 public class HorarioDeFuncionamientoClinica implements ValidadorDeConsultas{
     public void validar(DatosAgendarConsulta datos){
 

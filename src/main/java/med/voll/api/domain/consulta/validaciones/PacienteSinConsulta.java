@@ -11,18 +11,16 @@ public class PacienteSinConsulta implements ValidadorDeConsultas{
 
     @Autowired
     private ConsultaRepository repository;
-    public void validar(DatosAgendarConsulta datos){
 
+    public void validar(DatosAgendarConsulta datos)  {
         var primerHorario = datos.fecha().withHour(7);
         var ultimoHorario= datos.fecha().withHour(18);
 
-        var pacienteConConsulta = repository.existsByPacienteIdAndDataBetween
-                (datos.idPaciente(),primerHorario,ultimoHorario);
+        var pacienteConConsulta=repository.existsByPacienteIdAndFechaBetween(datos.idPaciente(),primerHorario,ultimoHorario);
 
-        if (pacienteConConsulta){
-            throw new ValidationException("El paciente ya tiene consulta ara ese dia");
+        if(pacienteConConsulta){
+            throw new ValidationException("el paciente ya tiene una consulta para ese dia");
         }
-
 
     }
 }
